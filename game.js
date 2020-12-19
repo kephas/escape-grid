@@ -76,16 +76,10 @@ let checkPath = (currentPath, wantedPath) => {
 	}
 }
 
-var displayer = function (element) {
-	var affichage = element;
-
-	function setText(message) {
-		affichage.innerHTML = message;
+let displayer = (element) => {
+	return (message) => {
+		element.innerHTML = message;
 	}
-
-	return {
-		sendMessage: setText
-	};
 };
 
 let pions = () => {
@@ -103,14 +97,12 @@ let activateGameButtons = (game) => {
 	}
 }
 
+
 function main() {
-	var joueurs = " ";
-	var jeuEstFini = false;
-	var display = new displayer(document.querySelector("#StatutJeu"));
+	var display = displayer(document.querySelector("#StatutJeu"));
 	var game = new Game(expectedPaths); 
-	display.sendMessage("pour commencer le jeu, cliquez sur la case blanche");
+	display("pour commencer le jeu, cliquez sur la case blanche");
 	activateGameButtons(game);
 }
-
 
 main();
