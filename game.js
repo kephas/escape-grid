@@ -5,7 +5,7 @@ const status = {
 };
 
 const expectedPaths = [
-	[1, 2, 3, 4, 5, 11],
+	[0, 1, 2, 3, 4, 5, 11],
 	[],
 	[]
 ];
