@@ -37,6 +37,7 @@ class Game {
 		switch(result) {
 		case status.ERROR:
 			pions()[index].className = "error";
+			window.setTimeout(() => { pions()[index].className = "nothing"; }, 1000)
 			break;
 		case status.CORRECT:
 			this.currentPath = tempPath;
@@ -84,7 +85,8 @@ let pions = () => {
 let activateGameButtons = (game) => {
 	for (var i = 0, len = pions().length; i < len; i++) {
 		((index) => {
-			pions()[i].addEventListener("click", function () {
+			pions()[index].className = "nothing";
+			pions()[index].addEventListener("click", function () {
 				game.checkButton(index);
 			})
 		})(i);
