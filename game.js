@@ -6,8 +6,8 @@ const status = {
 
 const expectedPaths = [
 	[0, 1, 2, 3, 4, 5, 11],
-	[],
-	[]
+	[0, 6, 12, 13, 14],
+	[0, 6, 7, 8, 14, 20]
 ];
 
 var startsWith = (base, prefix) => {
@@ -43,11 +43,10 @@ class Game {
 			setButtonTwoStates(index, "good", "path", 2000);
 			break;
 		case status.FINISHED:
+			setButtonTwoStates(index, "finished", "nothing", 2000);
+			resetBoard(2000);
 			if(this.remainingPaths.length > 0) {
-
 				this.goToNextPath();
-				// TODO: afficher numéro réussi
-				// TODO: reset tableau
 			}
 			break;
 		}
@@ -59,6 +58,10 @@ let setButtonTwoStates= (index, state1, state2, timeout) => {
 		pion.className = state1;
 		window.setTimeout(() => { pion.className = state2; }, timeout);
 	})(pions()[index]);
+}
+
+let resetBoard = (delay) => {
+	window.setTimeout(() => { pions().forEach((pion) => { pion.className = "nothing"; }) }, delay);
 }
 
 let checkPath = (currentPath, wantedPath) => {

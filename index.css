@@ -40,6 +40,10 @@ body {
     background-color: green;
   }
 
+  #Jeu button.finished {
+    background-color: greenyellow;
+  }
+
   
   
   #StatutJeu {
