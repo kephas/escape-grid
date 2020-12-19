@@ -65,29 +65,6 @@ let checkPath = (currentPath, wantedPath) => {
 	}
 }
 
-function caseValide(button) {
-	return button.innerHTML.length == 0;
-}
-
-function setSymbol(btn, symbole) {
-	btn.style.backgroundColor = "#0099FF"
-	btn.innerHTML = symbole;
-}
-
-function Pathfinding(pions, joueurs) {
-	console.log(pions[11].style, pions[11])
-	if (
-		pions[11].innerHTML == joueurs &&
-			pions[17].innerHTML == joueurs &&
-			pions[23].innerHTML == joueurs
-	) {
-		pions[11].style.backgroundColor = "#9ACD32";
-		pions[17].style.backgroundColor = "#9ACD32";
-		pions[23].style.backgroundColor = "#9ACD32";
-		return true;
-	}
-}
-
 var displayer = function (element) {
 	var affichage = element;
 
