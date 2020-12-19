@@ -36,15 +36,15 @@ class Game {
 
 		switch(result) {
 		case status.ERROR:
-			setButtonTwoStates(index, "error", "nothing", 1000);
+			setButtonTwoStates(index, "error", "nothing", 500);
 			break;
 		case status.CORRECT:
 			this.currentPath = tempPath;
-			setButtonTwoStates(index, "good", "path", 2000);
+			setButtonTwoStates(index, "good", "path", 1000);
 			break;
 		case status.FINISHED:
-			setButtonTwoStates(index, "finished", "nothing", 2000);
-			resetBoard(2000);
+			setButtonTwoStates(index, "finished", "nothing", 1000);
+			resetBoard(1000);
 			if(this.remainingPaths.length > 0) {
 				this.goToNextPath();
 			}
