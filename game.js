@@ -36,15 +36,15 @@ class Game {
 
 		switch(result) {
 		case status.ERROR:
-			pions()[index].className = "error";
-			window.setTimeout(() => { pions()[index].className = "nothing"; }, 1000)
+			setButtonTwoStates(index, "error", "nothing", 1000);
 			break;
 		case status.CORRECT:
 			this.currentPath = tempPath;
-			pions()[index].className = "good";
+			setButtonTwoStates(index, "good", "path", 2000);
 			break;
 		case status.FINISHED:
 			if(this.remainingPaths.length > 0) {
+
 				this.goToNextPath();
 				// TODO: afficher numéro réussi
 				// TODO: reset tableau
@@ -52,6 +52,13 @@ class Game {
 			break;
 		}
 	}
+}
+
+let setButtonTwoStates= (index, state1, state2, timeout) => {
+	((pion) => {
+		pion.className = state1;
+		window.setTimeout(() => { pion.className = state2; }, timeout);
+	})(pions()[index]);
 }
 
 let checkPath = (currentPath, wantedPath) => {
