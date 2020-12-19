@@ -10,6 +10,9 @@ const expectedPaths = [
 	[0, 6, 7, 8, 14, 20]
 ];
 
+const fastTimeout = 500;
+const slowTimeout = 1000;
+
 var startsWith = (base, prefix) => {
 	if (prefix.length <= base.length) {
 		return Array.from(prefix.keys()).map(index => base[index] == prefix[index]).every(x => x);
@@ -36,15 +39,15 @@ class Game {
 
 		switch(result) {
 		case status.ERROR:
-			setButtonTwoStates(index, "error", "nothing", 500);
+			setButtonTwoStates(index, "error", "nothing", fastTimeout);
 			break;
 		case status.CORRECT:
 			this.currentPath = tempPath;
-			setButtonTwoStates(index, "good", "path", 1000);
+			setButtonTwoStates(index, "good", "path", slowTimeout);
 			break;
 		case status.FINISHED:
-			setButtonTwoStates(index, "finished", "nothing", 1000);
-			resetBoard(1000);
+			setButtonTwoStates(index, "finished", "nothing", slowTimeout);
+			resetBoard(slowTimeout);
 			if(this.remainingPaths.length > 0) {
 				this.goToNextPath();
 			}
