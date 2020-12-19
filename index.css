@@ -37,11 +37,11 @@ body {
   }
 
   #Jeu button.good {
-    background-color: green;
+    background-color: greenyellow;
   }
 
   #Jeu button.finished {
-    background-color: greenyellow;
+    background-color: green;
   }
 
   
